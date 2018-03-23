@@ -1,17 +1,20 @@
 const { registerEvent, emitEvent } = require('./event-emitter');
 
 const events = [
-    (callback, ...args) => {
+   function (callback, ...args) {
         console.log('1');
         return callback(...args);
     },
-    (callback, ...args) => {
-        console.log('2');
+    function (...args) {
+        console.log('I am 2 and I am not returning callback!');
+    },
+    function (callback, ...args) {
+        console.log('3');
         return callback(...args);
         // return console.log('Enough!');
     },
-    (callback, ...args) => {
-        console.log('3');
+    function (callback, ...args) {
+        console.log('4');
         return callback(...args);
     }
 ];
